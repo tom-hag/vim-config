@@ -7,7 +7,10 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+" --- colours --- 
+Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'styled-components/vim-styled-components'
@@ -49,11 +52,11 @@ hi clear SignColumn
 
 " ----- Plugin-Specific Settings --------------------------------------
 set background=dark
-let g:airline_theme='molokai'
+let g:airline_theme='gruvbox'
+let g:gruvbox_italicize_comments='1'
 
 " Set the colorscheme
-colorscheme molokai
-
+colorscheme gruvbox
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 
