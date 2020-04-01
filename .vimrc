@@ -1,4 +1,5 @@
 set nocompatible
+set noro
 
 filetype off
 
@@ -7,32 +8,57 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-" --- colours --- 
+" ---- THEMES ---- 
 Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
-
-Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'styled-components/vim-styled-components'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'atelierbram/vim-colors_atelier-schemes.git'
+
+" ---- UI ----
+Plugin 'vim-airline/vim-airline'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'xolox/vim-misc'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-scripts/a.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'mxw/vim-jsx'
-Plugin 'skywind3000/asyncrun.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'plasticboy/vim-markdown'
+
+" ---- COMPLETION/HIGHLIGHTING/LINTING ----
+Plugin 'vim-syntastic/syntastic'
+Plugin 'cespare/vim-toml'
+Plugin 'ncm2/ncm2'
+
+
+" ---- FORMATTING ----
 Plugin 'alvan/vim-closetag'
+Plugin 'Raimondi/delimitMate'
+
+" ---- LANGUAGE SPECIFIC ----
+
+" --- js
+
+Plugin 'styled-components/vim-styled-components'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" --- rust
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+
+" --- scala
+
+Plugin 'derekwyatt/vim-scala'
+
+" ---- MISC ----
+Plugin 'xolox/vim-misc'
+Plugin 'vim-scripts/a.vim'
+
+Plugin 'skywind3000/asyncrun.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 
 filetype plugin indent on
+set rtp+=~/dev/others/base16/builder/templates/vim/
 
 " --- General settings ---
 set backspace=indent,eol,start
@@ -52,17 +78,27 @@ hi clear SignColumn
 
 " ----- Plugin-Specific Settings --------------------------------------
 set background=dark
-let g:airline_theme='gruvbox'
+"-- colorscheme gruvbox
+colorscheme Atelier_DuneDark
+
+hi Normal ctermbg=NONE
+" Get syntax
+" syntax on
+
+let g:airline_theme='Atelier_DuneDark'
 let g:gruvbox_italicize_comments='1'
 
 " Set the colorscheme
-colorscheme gruvbox
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 
 " ----- bling/vim-airline settings -----
 " Always show statusbar
 set laststatus=2
+
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
 
 " Fancy arrow symbols, requires a patched font
 " To install a patched font, run over to
